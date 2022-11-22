@@ -35,7 +35,7 @@ DROP TABLE Customers;
 INSERT INTO Customers(name, age)
 VALUES ("Tina", 13), ("Taylor", 15), ("Park Jin Seok", 24)
 
-# How to show warnings.
+# How to show warnings. (Only when we get a warning message)
 SHOW WARNINGS;
 
 # How to set NULL and NOT NULL for columns, Default value, Primary Key, and AUTO_INCREMENT.
