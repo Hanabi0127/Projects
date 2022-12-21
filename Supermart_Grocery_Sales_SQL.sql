@@ -16,7 +16,7 @@ USE supermart;
 SELECT * FROM supermart;
 SELECT COUNT(*) FROM supermart;
 
-# There are total of 9 columns and 9994 rows. Becasue we're not going to use all 9 columns, we're going to select only valid columns out of the table to retrieve.
+# There are total of 9 columns and 9994 rows. Becasue we're not going to use all 9 columns, we're going to select only valid columns out of the table.
 # Then, what are the valid columns that we can use in our EDA?
 # We need customer name, category, sub category, city, order date, region, sales, and profit for various reasons but what about Order ID and State?
 # The order ID column would be useful if we're interacting with other tables that has the same column referencing to Order ID column but since we're only using this table for this project,
