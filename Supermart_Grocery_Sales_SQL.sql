@@ -54,8 +54,8 @@ LIMIT 5;
 # As we can see in the result, snacks are the most popular category of items that the majority of customer puchases in the store. The rest of top selling categories
 # are also very popular and close to each other in the range of 100 orders. This result shows that the ranking of customer's demands in each cateogry and 
 # it is important to aware that these category of items requires to have a closer look into the number of supplies in the warehouse so that we don't end up having a shortage in stock.
-# Also, when we're placing an order on these categories, we can roughly estimate the number of orders. We can add sub_category column to be more speicifc with which items are exactly sold but
-# We're going to skip that for now. Let's add 2 more columns, total sales and total profit and re-order them by total profit.
+# Also, when we're placing an order on these categories, we can roughly estimate the number of orders. We can add sub_category column to be more specific with which items are exactly sold but
+# We're going to skip that for now. Let's add 2 more columns, total sales and total profit and sort out by total profit.
 
 SELECT Category, COUNT(*) AS Count, SUM(Sales) AS Total_Sales, ROUND(SUM(Profit),2) AS Total_Profit
 FROM supermart
@@ -80,7 +80,7 @@ ORDER BY Year;
 # Perhaps, there could be potential external factors are applied to this result such as growing population in the area, no substitution near the area, and more.
 # Nonetheless, as long as the business is growing, our job is to keep this retention and maintain what we have. 
 # Let's add one more table to our annual report. This time, we're going to be more specific with our total sales and total profit. Let's create a table that indicates the total sales and
-# the total profit of each month in corresponding years. Then, sort them out in appropriate order.
+# the total profit of each month in corresponding years. Then, sort them out in an appropriate order.
 SELECT MONTHNAME(STR_TO_DATE(REPLACE(SUBSTRING(Order_Date,1,2), "/", ""), "%m")) AS Month,
 		SUBSTRING(Order_Date,-4) AS Year,
 		SUM(Sales) AS Total_Sales,
@@ -97,11 +97,11 @@ ORDER BY Year, STR_TO_DATE(REPLACE(SUBSTRING(Order_Date,1,2), "/", ""), "%m");
 
 # Next is, we move onto customers. Let's make a scenario. If we want to give out coupons to our VIP customers reside in Western area, we want to have specific criterion to distinguish which
 # customers are considered as VIP. Let's bring out each customer's purchase history.
-# Before we start, Let's find the total number of customers from West who purchased in the store.
+# Before we start, Let's find the total number of customers who purchased in the store.
 SELECT COUNT(DISTINCT(Customer_Name)) FROM supermart
 WHERE Region = "West";
 
-# Done. We have total of 50 customers visited to our store. If we want to consider top 10% of customers who purchased the most in the store as a VIP, we want to find top 10% of 50 customers which is top 5 customers.
+# Done. We have total of 50 customers purchased in our store. If we want to consider top 10% of customers who purchased the most in the store as a VIP, we want to find top 10% of 50 customers which is only 5 customers.
 SELECT Customer_Name, SUM(Sales) AS Total
 FROM supermart
 WHERE Region = "West"
@@ -112,7 +112,7 @@ LIMIT 5;
 # These 5 customers are the loyal customers to our store. Therefore, we can give out coupons to these customers.
 # In our next scenario, Let's say we want to find the list of customer's name who purchased in our store in 2018.
 # Then, we want to make a new column named Status, this column will indicate the supply status of each category in 2018.
-# Let's be pretend that we had a world wide shortage in Fruits & Veggies and Food Grains due to a abnormal climate change. So we want to indicate the status of categories whoever purchased in those two categories will
+# Let's pretend that we had a world wide shortage in Fruits & Veggies and Food Grains due to a abnormal climate change. So we want to indicate the status of categories whoever purchased in those two categories will
 # be shown as "SHORTAGE_SUPPLY", if not, it will be shown as "NORMAL" in status column.
 SELECT Customer_Name, SUBSTRING(Order_Date,-4) AS Year, Category, Sub_Category , Region,
 	CASE
@@ -123,6 +123,6 @@ FROM supermart
 WHERE SUBSTRING(Order_Date,-4) = "2018"
 ORDER BY Status DESC, Category;
 
-# As we can see in the result, we can find the status column at the end of our table and it indicates the customers who purchased items that sorted as 
+# As we can see in the result, we can find the status column at the end of our table and it indicates the customers who purchased items that distributed as 
 # either Food Grains or Fruits & Veggies, as "SHORTAGE_SUPPLY" and the other categories are listed as "NORMAL". In this way, we can easily sort out which customer
 # purchased the items that distributed as shortage items in 2018.
