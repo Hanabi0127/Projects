@@ -1,6 +1,6 @@
 # SQL Portfolio: "Supermart Grocery Sales - Retail Analytics Dataset"
 # Name: Taehwan Kim
-# Date: 2022/12/14 ~ 2022/12/14
+# Date: 2022/12/14 ~ 2022/12/21
 # In this portfolio, I'm going to perform a simple EDA by using basic SQL skills to explore the dataset and extract information that we want to retrieve.
 # Then, we're going to answer some questions related to the dataset and make an approach to some realistic questions.
 
