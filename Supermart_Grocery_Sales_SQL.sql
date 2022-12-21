@@ -9,11 +9,11 @@
 # The dataset is designed with an assumption that the orders are placed by customers living in the state of Tamil Nadu, India.
 # Before we start, let's make a database and import our csv file to our database. 
 
-CREATE DATABASE supermart;
+CREATE DATABASE supermart
 USE supermart;
 
 # Done. The name of our database is supermart and imported the csv file as a table (The table name is also supermart). Let's view our table.
-SELECT * FROM supermart;
+SELECT * FROM supermart
 SELECT COUNT(*) FROM supermart;
 
 # There are total of 9 columns and 9994 rows. Becasue we're not going to use all 9 columns, we're going to select only valid columns out of the table to retrieve.
