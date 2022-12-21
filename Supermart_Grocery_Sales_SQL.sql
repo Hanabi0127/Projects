@@ -5,7 +5,7 @@
 # Then, we're going to answer some questions related to the dataset and make an approach to some realistic questions.
 
 ##  Introduction
-# The dataset is downloaded from "Kaggle" by Mohamed Harris and it is a fictional dataset and all the imformation in the dataset are not real. 
+# The dataset is downloaded from "Kaggle" by Mohamed Harris and it is a fictional dataset and all the information in the dataset are not real. 
 # The dataset is designed with an assumption that the orders are placed by customers living in the state of Tamil Nadu, India.
 # Before we start, let's make a database and import our csv file to our database. 
 
